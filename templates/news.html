@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">📰 All Tech News</h2>
+
+    <div class="row">
+
+        {% for item in news %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100 shadow-sm">
+
+                <img src="{{ item.image }}" class="card-img-top">
+
+                <div class="card-body">
+
+                    <span class="badge bg-secondary mb-2">
+                        {{ item.category }}
+                    </span>
+
+                    <h5 class="card-title">{{ item.title }}</h5>
+
+                    <p class="card-text">
+                        {{ item.description[:120] }}...
+                    </p>
+
+                    <a href="/news/{{ item.id }}" class="btn btn-sm btn-primary">
+                        Read More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

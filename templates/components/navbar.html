@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+       <a class="navbar-brand d-flex align-items-center fw-bold" href="/">
+    <img src="{{ url_for('static', filename='images/tbc-logo.png') }}"
+         alt="TechNews Georgia Logo"
+         height="45"
+         class="me-2">
+    TechNews Georgia
+</a>
+
+
+        <!-- Mobile button -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        Home
+                    </a>
+                </li>
+
+
+
+                <!-- News -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">
+                        News
+                    </a>
+                </li>
+
+
+
+                <!-- About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">
+                        About
+                    </a>
+                </li>
+
+
+
+
+                {% if current_user.is_authenticated %}
+
+
+                    <!-- Add News only for logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add-news">
+                            Add News
+                        </a>
+                    </li>
+
+
+
+                    <!-- Logout -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            Logout
+                        </a>
+                    </li>
+
+
+
+                {% else %}
+
+
+
+                    <!-- Login -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            Login
+                        </a>
+                    </li>
+
+
+
+
+                    <!-- Register -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">
+                            Register
+                        </a>
+                    </li>
+
+
+
+                {% endif %}
+
+
+
+            </ul>
+
+
+        </div>
+
+
+    </div>
+
+
+</nav>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="hero-section text-center text-white">
+
+    <div class="container">
+
+        <h1 class="display-4 fw-bold">TechNews Georgia</h1>
+
+        <p class="lead">
+            Latest Technology, AI, Gaming & Innovation News in One Place
+        </p>
+
+        <a href="/news" class="btn btn-light btn-lg mt-3">
+            Explore News
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- FEATURED NEWS -->
+<div class="container mt-5">
+
+    <h3 class="mb-4">🔥 Featured News</h3>
+
+    <div class="row">
+
+        {% for item in news %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100 shadow-sm">
+
+                <img src="{{ item.image }}" class="card-img-top">
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary mb-2">
+                        {{ item.category }}
+                    </span>
+
+                    <h5 class="card-title">{{ item.title }}</h5>
+
+                    <p class="card-text">
+                        {{ item.description[:100] }}...
+                    </p>
+
+                    <a href="/news/{{ item.id }}" class="btn btn-sm btn-outline-primary">
+                        Read More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

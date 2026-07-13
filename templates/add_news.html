@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        ➕ Add New Tech News
+    </h2>
+
+
+    <div class="card shadow-sm p-4">
+
+        <form method="POST">
+
+            {{ form.hidden_tag() }}
+
+
+            <div class="mb-3">
+
+                {{ form.title.label(class="form-label") }}
+
+                {{ form.title(
+                    class="form-control",
+                    placeholder="Enter news title"
+                ) }}
+
+                {% for error in form.title.errors %}
+                    <small class="text-danger">
+                        {{ error }}
+                    </small>
+                {% endfor %}
+
+            </div>
+
+
+
+            <div class="mb-3">
+
+                {{ form.category.label(class="form-label") }}
+
+                {{ form.category(
+                    class="form-control",
+                    placeholder="AI, Tech, Gaming..."
+                ) }}
+
+                {% for error in form.category.errors %}
+                    <small class="text-danger">
+                        {{ error }}
+                    </small>
+                {% endfor %}
+
+            </div>
+
+
+
+            <div class="mb-3">
+
+                {{ form.author.label(class="form-label") }}
+
+                {{ form.author(
+                    class="form-control",
+                    placeholder="Author name"
+                ) }}
+
+                {% for error in form.author.errors %}
+                    <small class="text-danger">
+                        {{ error }}
+                    </small>
+                {% endfor %}
+
+            </div>
+
+
+
+
+            <div class="mb-3">
+
+                {{ form.image.label(class="form-label") }}
+
+                {{ form.image(
+                    class="form-control",
+                    placeholder="Image URL"
+                ) }}
+
+                {% for error in form.image.errors %}
+                    <small class="text-danger">
+                        {{ error }}
+                    </small>
+                {% endfor %}
+
+            </div>
+
+
+
+
+            <div class="mb-3">
+
+                {{ form.description.label(class="form-label") }}
+
+                {{ form.description(
+                    class="form-control",
+                    rows="6",
+                    placeholder="Write news content..."
+                ) }}
+
+                {% for error in form.description.errors %}
+                    <small class="text-danger">
+                        {{ error }}
+                    </small>
+                {% endfor %}
+
+            </div>
+
+
+
+
+            <div>
+
+                {{ form.submit(
+                    class="btn btn-success"
+                ) }}
+
+                <a href="/news" class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
